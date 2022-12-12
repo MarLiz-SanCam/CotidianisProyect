@@ -22,6 +22,17 @@ class _LogInScrnState extends State<LogInScrn> {
         ),
         backgroundColor: ChampagnePink.champagnePink,
       ),
+      bottomNavigationBar: BottomAppBar(
+        //Barra del fodo de la app
+        child: Text(
+          'PDM - Equipo 1; Cotidianis ',
+          textAlign: TextAlign.center,
+          style: TextStyle(
+            color: ChampagnePink.champagnePink[900],
+          ),
+        ),
+        color: ChampagnePink.champagnePink,
+      ),
     );
   }
 }
