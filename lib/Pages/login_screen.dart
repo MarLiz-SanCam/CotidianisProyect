@@ -1,21 +1,21 @@
 import 'package:flutter/material.dart';
-import '../Theme/ChampagnePink.dart';
+import '../Theme/champagne_pink.dart';
 
-class RegisterScrn extends StatefulWidget {
-  const RegisterScrn({Key? key}) : super(key: key);
+class LogInScrn extends StatefulWidget {
+  const LogInScrn({Key? key}) : super(key: key);
 
   @override
-  _RegisterScrnState createState() => _RegisterScrnState();
+  _LogInScrnState createState() => _LogInScrnState();
 }
 
-class _RegisterScrnState extends State<RegisterScrn> {
+class _LogInScrnState extends State<LogInScrn> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         //Barra de la aplicación
         centerTitle: true, //Centra el título de la barra de la aplicación
-        title: Text(
+        title: const Text(
           'COTIDIANIS',
           //Texto para el título de la aplicación (aparece en la barra)
           style: TextStyle(fontSize: 22.0, fontFamily: 'RobotoSlab', color: Colors.black),

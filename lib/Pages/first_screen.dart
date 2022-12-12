@@ -1,12 +1,15 @@
+// ignore: unnecessary_import
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../Theme/ChampagnePink.dart';
+import '../Theme/champagne_pink.dart';
 
 
 // --------------------------  Fin de los 'import' -------------------------- //
 // Página principal de la aplicación.
 class FirstScreen extends StatelessWidget {
+  const FirstScreen({Key? key}) : super(key: key);
+
   @override
 
   Widget build(BuildContext context) {
@@ -15,7 +18,7 @@ class FirstScreen extends StatelessWidget {
       appBar: AppBar(
         //Barra de la aplicación
         centerTitle: true, //Centra el título de la barra de la aplicación
-        title: Text(
+        title: const Text(
           'COTIDIANIS',
           //Texto para el título de la aplicación (aparece en la barra)
           style: TextStyle(fontSize: 22.0, fontFamily: 'RobotoSlab', color: Colors.black),
@@ -23,7 +26,7 @@ class FirstScreen extends StatelessWidget {
         backgroundColor: ChampagnePink.champagnePink,
       ),
       body: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           image: DecorationImage(
             image: AssetImage("images/3.jpg"),
             fit: BoxFit.cover,
@@ -33,12 +36,12 @@ class FirstScreen extends StatelessWidget {
           children: <Widget>[
             Column(
               children: <Widget>[
-                SizedBox(
+                const SizedBox(
                   height: 300.0,
                 ),
                 Container(
                   alignment: Alignment.center,
-                  padding: EdgeInsets.symmetric(horizontal: 45.0),
+                  padding: const EdgeInsets.symmetric(horizontal: 45.0),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -64,7 +67,7 @@ class FirstScreen extends StatelessWidget {
                           onPressed: () async {
                               //TODO: agregar acción para página de creación de cuenta
                           }),
-                      SizedBox(
+                      const SizedBox(
                         height: 50.0,
                       ),
                       MaterialButton(
@@ -93,7 +96,7 @@ class FirstScreen extends StatelessWidget {
                     ],
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 230.0,
                 ),
 
