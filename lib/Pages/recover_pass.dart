@@ -1,3 +1,4 @@
+import 'package:cotidianis_pdm/Theme/light_steel_blue.dart';
 import 'package:flutter/material.dart';
 
 class PassRecover extends StatefulWidget {
@@ -10,6 +11,28 @@ class PassRecover extends StatefulWidget {
 class _PassRecoverState extends State<PassRecover> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      appBar: AppBar(
+        //Barra de la aplicación
+        centerTitle: true, //Centra el título de la barra de la aplicación
+        title: Text(
+          'Recuperar Constraseña',
+          //Texto para el título de la aplicación (aparece en la barra)
+          style: TextStyle(fontSize: 22.0, fontFamily: 'RobotoSlab', color: LightSteelBlue.lSteelBlue[50]),
+        ),
+        backgroundColor: LightSteelBlue.lSteelBlue[500],
+      ),
+      bottomNavigationBar: BottomAppBar(
+        //Barra del fodo de la app
+        child: Text(
+          'PDM - Equipo 1; Cotidianis ',
+          textAlign: TextAlign.center,
+          style: TextStyle(
+            color: LightSteelBlue.lSteelBlue[50],
+          ),
+        ),
+        color: LightSteelBlue.lSteelBlue[500],
+      ),
+    );
   }
 }

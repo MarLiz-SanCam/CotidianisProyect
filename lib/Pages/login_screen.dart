@@ -1,5 +1,9 @@
+// ignore_for_file: non_constant_identifier_names, body_might_complete_normally_nullable, avoid_print
+
+
 import 'package:cotidianis_pdm/Theme/champagne_pink.dart';
 import 'package:cotidianis_pdm/Theme/light_steel_blue.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class LogInScrn extends StatefulWidget {
@@ -10,8 +14,18 @@ class LogInScrn extends StatefulWidget {
 }
 
 class _LogInScrnState extends State<LogInScrn> {
+  final emailController = TextEditingController();
+  final passController = TextEditingController();
+
+  @override
+  void dispose(){
+    emailController.dispose();
+    passController.dispose();
+    super.dispose();
+  }
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       appBar: AppBar(
         //Barra de la aplicación
@@ -47,23 +61,27 @@ class _LogInScrnState extends State<LogInScrn> {
                       const SizedBox(height: 30),
                       TextFormField(
                         //TODO: validaddor del nombre
+                        controller: emailController,
                         autocorrect: false,
                         keyboardType: TextInputType.emailAddress,
                         cursorColor: LightSteelBlue.lSteelBlue,
+                        textInputAction: TextInputAction.next,
                         decoration: const InputDecoration(
                             labelText: "Correo Electrónico"
                         ),
                         validator: (value){
                           if (value!.isEmpty){
-                            return '¡Ingrese su nombre!';
+                            return '¡Ingrese su CORREO!';
                           }
                         },
                       ),
                       const SizedBox(height: 30),
                       TextFormField(
                         //TODO: validaddor de la contraseña
+                        controller: passController,
                         autocorrect: false,
                         obscureText: true,
+                        textInputAction: TextInputAction.done,
                         keyboardType: TextInputType.emailAddress,
                         cursorColor: LightSteelBlue.lSteelBlue,
                         decoration: const InputDecoration(
@@ -75,18 +93,21 @@ class _LogInScrnState extends State<LogInScrn> {
                           }
                         },
                       ),
-                      const SizedBox(height: 20),
+                      const SizedBox(height: 10),
+                      TextButton(
+                          onPressed: (){
+                            Navigator.of(context).pushNamed('/PasswordRecovery');
+                          },
+                          child: Text("olvidé mi contraseña",
+                          style: TextStyle(color: ChampagnePink.champagnePink[400]),
+                          )
+                      ),
                     ],
                   ),
                 ),
                 const SizedBox(
-                  height: 50.0,
+                  height: 60.0,
                 ),
-                TextButton(
-                    onPressed: (){
-                      Navigator.of(context).pushNamed('/PasswordRecovery');
-                    },
-                    child: const Text("olvidé mi contraseña")),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -111,11 +132,17 @@ class _LogInScrnState extends State<LogInScrn> {
                               LightSteelBlue.lSteelBlue),
                         ),
                         onPressed:(){
-                          Navigator.of(context).pushNamed("/HomeScrn");
-                          ScaffoldMessenger.of(context).showSnackBar(
-                              const SnackBar(content: Text('Abriendo sesión...')));
+                          //LogIn();
+                          FirebaseAuth.instance.signInWithEmailAndPassword(
+                              email: emailController.text,
+                              password: passController.text
+                          ).then((value){
+                            Navigator.of(context).pushNamed("/HomeScrn");
+                          }).onError((error, stackTrace){
+                            print("ERROR! ${error.toString()}");
+                          });
                         },
-                        child: const Text("Crear Cuenta",
+                        child: const Text("Iniciar Sesion",
                             style: TextStyle(
                                 fontSize: 18.0
                             ))),
@@ -139,4 +166,20 @@ class _LogInScrnState extends State<LogInScrn> {
       ),
     );
   }
+  // Future LogIn() async{
+  //   showDialog(
+  //      context: context,
+  //       barrierDismissible: false,
+  //       builder: (context) => const Center(child: CircularProgressIndicator()),
+  //   );
+  //   try{
+  //     await FirebaseAuth.instance.signInWithEmailAndPassword(
+  //       email: emailController.text.trim(),
+  //       password: passController.text.trim(),
+  //     );
+  //   }on FirebaseAuthException catch (e){
+  //     print(e);
+  //   }
+  //   navigatorKey.currentState!.popUntil((route) => route.isFirst);
+  // }
 }

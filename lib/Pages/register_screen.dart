@@ -1,4 +1,7 @@
+// ignore_for_file: avoid_print
+
 import 'package:cotidianis_pdm/Theme/light_steel_blue.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import '../Theme/champagne_pink.dart';
 
@@ -10,10 +13,19 @@ class RegisterScrn extends StatefulWidget {
 }
 
 class _RegisterScrnState extends State<RegisterScrn> {
-  late String _email;
-  late String _password;
+  final emailController = TextEditingController();
+  final passController = TextEditingController();
+  final userController = TextEditingController();
+
+  @override
+  void dispose(){
+    emailController.dispose();
+    passController.dispose();
+    super.dispose();
+  }
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       appBar: AppBar(
         //Barra de la aplicación
@@ -58,14 +70,15 @@ class _RegisterScrnState extends State<RegisterScrn> {
                     children: [
                       TextFormField(
                         //TODO: validaddor del nombre
+                        controller: userController,
                         autocorrect: false,
                         keyboardType: TextInputType.emailAddress,
                         cursorColor: LightSteelBlue.lSteelBlue,
                         decoration: const InputDecoration(
                             labelText: "Nombre"
                         ),
-                        validator: (value){
-                          if (value!.isEmpty){
+                        validator: (userName){
+                          if (userName!.isEmpty){
                             return '¡Ingrese su nombre!';
                           }
                         },
@@ -88,6 +101,7 @@ class _RegisterScrnState extends State<RegisterScrn> {
                       const SizedBox(height: 30),
                       TextFormField(
                         //TODO: validaddor del nombre
+                        controller: emailController,
                         autocorrect: false,
                         keyboardType: TextInputType.emailAddress,
                         cursorColor: LightSteelBlue.lSteelBlue,
@@ -119,6 +133,7 @@ class _RegisterScrnState extends State<RegisterScrn> {
                       const SizedBox(height: 20),
                       TextFormField(
                         //TODO: validaddor de la confirmación de la comtraseña
+                        controller: passController,
                         obscureText: true,
                         autocorrect: false,
                         keyboardType: TextInputType.emailAddress,
@@ -162,9 +177,20 @@ class _RegisterScrnState extends State<RegisterScrn> {
                           LightSteelBlue.lSteelBlue),
                     ), 
                         onPressed:(){
-                          Navigator.of(context).pushNamed("/LogInScrn");
-                          ScaffoldMessenger.of(context).showSnackBar(
-                              const SnackBar(content: Text('Cuenta Creada; ¡¡Inicia Sesión!!')));
+                          FirebaseAuth.instance.createUserWithEmailAndPassword(
+
+                              email: emailController.text,
+                              password: passController.text
+                          ).then((value) {
+                            Navigator.of(context).pushNamed("/LogInScrn");
+                            ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Cuenta creada exitosamente. Inicie sesión")));
+                          }
+                          ).onError((error, stackTrace){
+                            print("Error: ${error.toString()}");
+                          });
+                          // Navigator.of(context).pushNamed("/LogInScrn");
+                          // ScaffoldMessenger.of(context).showSnackBar(
+                          //     const SnackBar(content: Text('Cuenta Creada; ¡¡Inicia Sesión!!')));
                         },
                         child: const Text("Crear Cuenta",
                             style: TextStyle(
