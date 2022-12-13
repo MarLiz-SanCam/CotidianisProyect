@@ -19,7 +19,7 @@ Future<void> main() async {
 }
 
 class MyApp extends StatelessWidget{
-  final Future<FirebaseApp> _fbApp = Firebase.initializeApp();
+  final Future<FirebaseApp> _fbApp = Firebase.initializeApp();// ignore: unused_field
 
   MyApp({Key? key}) : super(key: key);
   @override

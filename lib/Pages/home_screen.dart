@@ -1,19 +1,29 @@
 import 'package:cotidianis_pdm/Theme/champagne_pink.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-
 import '../Theme/light_steel_blue.dart';
-
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
   @override
   _HomeScreenState createState() => _HomeScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateMixin{
+  int tabslenght = 3;
+  late TabController _tabController;
 
   @override
+  void initState() {
+    super.initState();
+    _tabController = TabController(length: tabslenght, vsync: this);
+  }
 
+  @override
+  void dispose() {
+    _tabController.dispose();
+    super.dispose();
+  }
+  @override
   Widget build(BuildContext context) {
    final user = FirebaseAuth.instance.currentUser!;
     return Scaffold(
@@ -25,17 +35,38 @@ class _HomeScreenState extends State<HomeScreen> {
           //Texto para el título de la aplicación (aparece en la barra)
           style: TextStyle(fontSize: 22.0, fontFamily: 'RobotoSlab', color: LightSteelBlue.lSteelBlue[50]),
         ),
-        backgroundColor: LightSteelBlue.lSteelBlue[500],
+        bottom: TabBar(
+            controller: _tabController,
+            indicatorColor: ChampagnePink.champagnePink[900],
+            unselectedLabelColor: ChampagnePink.champagnePink[50],
+            labelColor: ChampagnePink.champagnePink[200],
+            tabs: const[
+              Tab(
+                text: ("Mi Agenda"),
+                icon: Icon(Icons.calendar_month_rounded),
+
+              ),
+              Tab(
+                text: "Mis Listas",
+                icon: Icon(Icons.view_list_rounded),
+              ),
+              Tab(
+                text: "Mis Notas",
+                icon: Icon(Icons.library_books_rounded),
+              ),
+            ]
+        ),
+        backgroundColor: LightSteelBlue.lSteelBlue[700],
       ),
       drawer: Drawer(
-        backgroundColor: LightSteelBlue.lSteelBlue,
+        backgroundColor: LightSteelBlue.lSteelBlue[500],
         child: ListView(
           padding: EdgeInsets.zero,
           children: [
             const SizedBox(height: 10),
             DrawerHeader(
-              decoration: const BoxDecoration(
-                color: LightSteelBlue.lSteelBlue,
+              decoration: BoxDecoration(
+                color: LightSteelBlue.lSteelBlue[500],
               ),
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -45,7 +76,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   PRUEBA DE IMAGEN
                   size: 60,),*/
                   CircleAvatar(
-                    backgroundColor: ChampagnePink.champagnePink,
+                    backgroundColor: ChampagnePink.champagnePink[100],
                     radius: 35,
                     child: Text(
                       "MaP",//TODO: vava ser la foto de perfil del usuario
@@ -61,11 +92,11 @@ class _HomeScreenState extends State<HomeScreen> {
                       Text(
                         //user.displayName!,
                         "UserNameHere",
-                        style: TextStyle(fontSize: 25),
+                        style: TextStyle(fontSize: 25, color: ChampagnePink.champagnePink[100]),
                       ),
                       Text(
                         user.email!,
-                        style: const TextStyle(fontSize: 15),
+                        style: TextStyle(fontSize: 15, color: ChampagnePink.champagnePink[900]),
                       ),
                     ],
                   ),
@@ -77,6 +108,7 @@ class _HomeScreenState extends State<HomeScreen> {
               title: const Text(
                 'Ver Perfil',
                 textScaleFactor: 1.5,
+                style: TextStyle(color: ChampagnePink.champagnePink, fontFamily: 'RobotoSlab' ),
               ),
               onTap: () {
                 // TODO:Update the state of the app
@@ -89,6 +121,7 @@ class _HomeScreenState extends State<HomeScreen> {
               title: const Text(
                 'Equipos de trabajo',
                 textScaleFactor: 1.5,
+                style: TextStyle(color: ChampagnePink.champagnePink, fontFamily: 'RobotoSlab' ),
               ),
               onTap: () {
                 // TODO:Update the state of the app
@@ -99,7 +132,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ListTile(
               title: const Text(
                 'Configuración',
-                style: TextStyle( color: Colors.grey),
+                style: TextStyle( color: Colors.grey, fontFamily: 'RobotoSlab'),
                 textScaleFactor: 1.5,
               ),
               onTap: () {
@@ -109,7 +142,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
               title: const Text(
                 'Preferencias',
-                style: TextStyle( color: Colors.grey),
+                style: TextStyle( color: Colors.grey, fontFamily: 'RobotoSlab'),
                 textScaleFactor: 1.5,
               ),
               onTap: () {
@@ -119,6 +152,7 @@ class _HomeScreenState extends State<HomeScreen> {
               title: const Text(
                 'Cerrar Sesion',
                 textScaleFactor: 1.5,
+                style: TextStyle(color: ChampagnePink.champagnePink, fontFamily: 'RobotoSlab' ),
               ),
               onTap: () async {
                 await FirebaseAuth.instance.signOut();
@@ -127,8 +161,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ],
         ),
       ),
-      body: Container(
-
+      body: Container(color: ChampagnePink.champagnePink,
       ),
       bottomNavigationBar: BottomAppBar(
         //Barra del fodo de la app
