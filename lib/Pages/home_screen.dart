@@ -1,3 +1,6 @@
+import 'package:cotidianis_pdm/Content/my_notes.dart';
+import 'package:cotidianis_pdm/Content/my_events.dart';
+import 'package:cotidianis_pdm/Content/my_lists.dart';
 import 'package:cotidianis_pdm/Theme/champagne_pink.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -127,6 +130,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                 // TODO:Update the state of the app
                 //Navigator.push(context, )
                 Navigator.pop(context);
+                Navigator.of(context).pushNamed('/Teams');
               },
             ),
             ListTile(
@@ -161,7 +165,13 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
           ],
         ),
       ),
-      body: Container(color: ChampagnePink.champagnePink,
+      body: TabBarView(
+        controller: _tabController,
+        children: [
+          MyEvents(),
+          MyLists(),
+          MyNotes(),
+        ],
       ),
       bottomNavigationBar: BottomAppBar(
         //Barra del fodo de la app

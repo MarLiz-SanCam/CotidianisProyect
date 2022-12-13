@@ -5,7 +5,10 @@ import 'package:cotidianis_pdm/Pages/home_screen.dart';
 import 'package:cotidianis_pdm/Pages/login_screen.dart';
 import 'package:cotidianis_pdm/Pages/recover_pass.dart';
 import 'package:cotidianis_pdm/Pages/register_screen.dart';
+import 'package:cotidianis_pdm/Pages/teams.dart';
 import 'package:flutter/cupertino.dart';
+
+import 'Content/add_Team_Form.dart';
 
 Map<String, WidgetBuilder> buildAppRoutes(){
   return{
@@ -15,5 +18,7 @@ Map<String, WidgetBuilder> buildAppRoutes(){
     '/HomeScrn': (BuildContext context) => const HomeScreen(),
     '/PasswordRecovery': (BuildContext context) => const PassRecover(),
     '/EditProfile': (BuildContext context) => const EditProfile(),
+    '/Teams': (BuildContext context) => const Teams(),
+    '/AddTeam': (BuildContext context) => const AddTeam(),
   };
 }
