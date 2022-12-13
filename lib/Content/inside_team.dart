@@ -28,13 +28,13 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
   }
   @override
   Widget build(BuildContext context) {
-   final user = FirebaseAuth.instance.currentUser!;
+    final user = FirebaseAuth.instance.currentUser!;
     return Scaffold(
       appBar: AppBar(
         //Barra de la aplicación
         centerTitle: true, //Centra el título de la barra de la aplicación
         title: Text(
-          'COTIDIANIS',
+          'EQUIPO 1',
           //Texto para el título de la aplicación (aparece en la barra)
           style: TextStyle(fontSize: 22.0, fontFamily: 'RobotoSlab', color: LightSteelBlue.lSteelBlue[50]),
         ),
@@ -111,13 +111,13 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
               title: const Text(
                 'Ver Perfil',
                 textScaleFactor: 1.5,
-                style: TextStyle(color:Colors.grey, fontFamily: 'RobotoSlab' ),
+                style: TextStyle(color: ChampagnePink.champagnePink, fontFamily: 'RobotoSlab' ),
               ),
               onTap: () {
                 // TODO:Update the state of the app
                 //Navigator.push(context, )
-                // Navigator.pop(context);
-                // Navigator.of(context).pushNamed("/EditProfile");
+                Navigator.pop(context);
+                Navigator.of(context).pushNamed("/EditProfile");
               },
             ),
             ListTile(

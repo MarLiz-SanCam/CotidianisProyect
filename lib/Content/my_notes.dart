@@ -25,7 +25,7 @@ class MyNotes extends StatelessWidget {
             },
             onLongPress: (){
               print(todos[index].titulo);
-
+              Navigator.of(context).pushNamed('/ShowNotes');
             },
           );
         }

@@ -19,10 +19,12 @@ class MyLists extends StatelessWidget {
             subtitle: Text(_todos[index].descripcion),
             trailing: Icon(Icons.navigate_next_rounded),
             onTap: (){
+              Navigator.of(context).pushNamed('/ShowList');
               print("Abriendo Lista para ver contenido...");
             },
             onLongPress: (){
               print(_todos[index].titulo);
+
             },
           );
         }

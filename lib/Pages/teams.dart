@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../Theme/champagne_pink.dart';
@@ -35,6 +37,9 @@ class _AddNewT extends State<Teams> {
               Card(
                 color: LightSteelBlue.lSteelBlue[50],
                 child: ListTile(
+                  onLongPress: (){
+                    Navigator.of(context).pushNamed("/ShowTeam");
+                  },
                   leading: CircleAvatar(
                     backgroundColor: ChampagnePink.champagnePink,
                     radius: 25,
