@@ -5,6 +5,7 @@ import 'package:cotidianis_pdm/Theme/champagne_pink.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import '../Theme/light_steel_blue.dart';
+
 class ShowTeam extends StatefulWidget {
   const ShowTeam({Key? key}) : super(key: key);
   @override
@@ -12,7 +13,7 @@ class ShowTeam extends StatefulWidget {
 }
 
 class _ShowTeamState extends State<ShowTeam> with SingleTickerProviderStateMixin{
-  int tabslenght = 3;
+  int tabslenght = 2;
   late TabController _tabController;
 
   @override
@@ -44,11 +45,7 @@ class _ShowTeamState extends State<ShowTeam> with SingleTickerProviderStateMixin
             unselectedLabelColor: ChampagnePink.champagnePink[50],
             labelColor: ChampagnePink.champagnePink[200],
             tabs: const[
-              Tab(
-                text: ("Mi Agenda"),
-                icon: Icon(Icons.calendar_month_rounded),
 
-              ),
               Tab(
                 text: "Mis Listas",
                 icon: Icon(Icons.view_list_rounded),
@@ -159,7 +156,7 @@ class _ShowTeamState extends State<ShowTeam> with SingleTickerProviderStateMixin
                 style: TextStyle(color: ChampagnePink.champagnePink, fontFamily: 'RobotoSlab' ),
               ),
               onTap: () async {
-                await FirebaseAuth.instance.signOut();
+                FirebaseAuth.instance.signOut();
               },
             ),
           ],
