@@ -65,7 +65,7 @@ class FirstScreen extends StatelessWidget {
                           minWidth: 170.0,
                           splashColor: Colors.transparent,
                           onPressed: () async {
-                              //TODO: agregar acción para página de creación de cuenta
+                            Navigator.of(context).pushNamed('/RegisterScrn');
                           }),
                       const SizedBox(
                         height: 50.0,
@@ -90,7 +90,7 @@ class FirstScreen extends StatelessWidget {
                           minWidth: 170.0,
                           splashColor: Colors.transparent,
                           onPressed: () async {
-                            //TODO: agregar pantalla de inicio de sesión
+                            Navigator.of(context).pushNamed('/LogInScrn');
                           }
                       ),
                     ],

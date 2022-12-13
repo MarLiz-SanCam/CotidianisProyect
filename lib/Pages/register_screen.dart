@@ -1,3 +1,4 @@
+import 'package:cotidianis_pdm/Theme/light_steel_blue.dart';
 import 'package:flutter/material.dart';
 import '../Theme/champagne_pink.dart';
 
@@ -9,6 +10,8 @@ class RegisterScrn extends StatefulWidget {
 }
 
 class _RegisterScrnState extends State<RegisterScrn> {
+  late String _email;
+  late String _password;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,7 +32,9 @@ class _RegisterScrnState extends State<RegisterScrn> {
             padding: const EdgeInsets.symmetric(vertical: 25.0, horizontal: 40),
             child: Column(
               children: [
-                const CircleAvatar(/*TODO; allow the user to put their own profile picture*/),
+                const CircleAvatar(/*TODO; allow the user to put their own profile picture*/
+                radius: 60,
+                ),
                 const SizedBox(
                   height: 25.0,
                 ),
@@ -50,18 +55,122 @@ class _RegisterScrnState extends State<RegisterScrn> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: const [
-                      Text("Nombre",
-                    textAlign: TextAlign.left,
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontFamily: 'Roboto',
-                      fontWeight: FontWeight.w600,
-                      fontSize: 18.0,
+                    children: [
+                      TextFormField(
+                        //TODO: validaddor del nombre
+                        autocorrect: false,
+                        keyboardType: TextInputType.emailAddress,
+                        cursorColor: LightSteelBlue.lSteelBlue,
+                        decoration: const InputDecoration(
+                            labelText: "Nombre"
+                        ),
+                        validator: (value){
+                          if (value!.isEmpty){
+                            return '¡Ingrese su nombre!';
+                          }
+                        },
                       ),
+                      const SizedBox(height: 30),
+                      TextFormField(
+                        //TODO: validaddor del nombre
+                        autocorrect: false,
+                        keyboardType: TextInputType.emailAddress,
+                        cursorColor: LightSteelBlue.lSteelBlue,
+                        decoration: const InputDecoration(
+                          labelText: "Correo Electrónico"
+                        ),
+                        validator: (value){
+                          if (value!.isEmpty){
+                            return '¡Ingrese su nombre!';
+                          }
+                        },
+                      ),
+                      const SizedBox(height: 30),
+                      TextFormField(
+                        //TODO: validaddor del nombre
+                        autocorrect: false,
+                        keyboardType: TextInputType.emailAddress,
+                        cursorColor: LightSteelBlue.lSteelBlue,
+                        decoration: const InputDecoration(
+                            labelText: "Confirmar Correo Electrónico"
+                        ),
+                        validator: (value){
+                          if (value!.isEmpty){
+                            return '¡Ingrese su nombre!';
+                          }
+                        },
+                      ),
+                      const SizedBox(height: 30),
+                      TextFormField(
+                        //TODO: validaddor de la contraseña
+                        autocorrect: false,
+                        obscureText: true,
+                        keyboardType: TextInputType.emailAddress,
+                        cursorColor: LightSteelBlue.lSteelBlue,
+                        decoration: const InputDecoration(
+                            labelText: "Contraseña"
+                        ),
+                        validator: (value){
+                          if (value!.isEmpty){
+                            return '¡Ingrese su nombre!';
+                          }
+                        },
+                      ),
+                      const SizedBox(height: 20),
+                      TextFormField(
+                        //TODO: validaddor de la confirmación de la comtraseña
+                        obscureText: true,
+                        autocorrect: false,
+                        keyboardType: TextInputType.emailAddress,
+                        cursorColor: LightSteelBlue.lSteelBlue,
+                        decoration: const InputDecoration(
+                            labelText: "Confirmar Contraseña"
+                        ),
+                        validator: (value){
+                          if (value!.isEmpty){
+                            return '¡Ingrese su nombre!';
+                          }
+                        },
                       ),
                     ],
                   ),
+                ),
+                const SizedBox(
+                  height: 25.0,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    ElevatedButton(
+                        style: ButtonStyle(
+                          backgroundColor: MaterialStateProperty.all<Color>(
+                            LightSteelBlue.lSteelBlue),
+                        ),
+                        onPressed:(){
+                          Navigator.of(context).pop();
+                        },
+                        child: const Text("Cancelar",
+                        style: TextStyle(
+                          fontSize: 18.0
+                        ))
+                    ),
+                    const SizedBox(width: 50),
+                    ElevatedButton( 
+                        style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all<Color>(
+                          LightSteelBlue.lSteelBlue),
+                    ), 
+                        onPressed:(){
+                          Navigator.of(context).pushNamed("/LogInScrn");
+                          ScaffoldMessenger.of(context).showSnackBar(
+                              const SnackBar(content: Text('Cuenta Creada; ¡¡Inicia Sesión!!')));
+                        },
+                        child: const Text("Crear Cuenta",
+                            style: TextStyle(
+                                fontSize: 18.0
+                            ))),
+                  ],
                 ),
               ],
             ),
