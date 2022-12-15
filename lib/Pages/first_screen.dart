@@ -44,6 +44,16 @@ class FirstScreen extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       MaterialButton(
+                          color: ChampagnePink.champagnePink[900],
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10.0)),
+                          elevation: 5,
+                          height: 60.0,
+                          minWidth: 170.0,
+                          splashColor: Colors.transparent,
+                          onPressed: () async {
+                            Navigator.of(context).pushNamed('/RegisterScrn');
+                          },
                           child: const Text(
                             'Registrarse',
 
@@ -54,31 +64,11 @@ class FirstScreen extends StatelessWidget {
                               fontSize: 20.0,
                             ),
                             textAlign: TextAlign.center,
-                          ),
-                          color: ChampagnePink.champagnePink[900],
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(10.0)),
-                          elevation: 5,
-                          height: 60.0,
-                          minWidth: 170.0,
-                          splashColor: Colors.transparent,
-                          onPressed: () async {
-                            Navigator.of(context).pushNamed('/RegisterScrn');
-                          }),
+                          )),
                       const SizedBox(
                         height: 50.0,
                       ),
                       MaterialButton(
-                          child: const Text(
-                            'Iniciar Sesión',
-                            style: TextStyle(
-                              color: ChampagnePink.champagnePink,
-                              fontFamily: 'PTSerif',
-                              fontWeight: FontWeight.bold,
-                              fontSize: 20.0,
-                            ),
-                            textAlign: TextAlign.center,
-                          ),
                           color: ChampagnePink.champagnePink[900],
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10.0)
@@ -89,7 +79,17 @@ class FirstScreen extends StatelessWidget {
                           splashColor: Colors.transparent,
                           onPressed: () async {
                             Navigator.of(context).pushNamed('/LogInScrn');
-                          }
+                          },
+                          child: const Text(
+                            'Iniciar Sesión',
+                            style: TextStyle(
+                              color: ChampagnePink.champagnePink,
+                              fontFamily: 'PTSerif',
+                              fontWeight: FontWeight.bold,
+                              fontSize: 20.0,
+                            ),
+                            textAlign: TextAlign.center,
+                          )
                       ),
                     ],
                   ),
@@ -105,6 +105,8 @@ class FirstScreen extends StatelessWidget {
       ),
       bottomNavigationBar: BottomAppBar(
         //Barra del fodo de la app
+        color: ChampagnePink.champagnePink,
+        //Barra del fodo de la app
         child: Text(
           'PDM - Equipo 1; Cotidianis ',
           textAlign: TextAlign.center,
@@ -112,7 +114,6 @@ class FirstScreen extends StatelessWidget {
             color: ChampagnePink.champagnePink[900],
           ),
         ),
-        color: ChampagnePink.champagnePink,
       ),
     );
   }

@@ -1,5 +1,4 @@
 import 'package:cotidianis_pdm/Theme/champagne_pink.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../Theme/light_steel_blue.dart';
@@ -24,11 +23,11 @@ class ShowNota extends StatelessWidget {
       body: Center(
         child: Card(
           child: Container(
-            padding: EdgeInsets.all(20),
+            padding: const EdgeInsets.all(20),
               width: 300,
               height: 400,
               child: Column(
-                children: [
+                children: const [
                   Text("Ejemplo", style: TextStyle(fontSize: 30, fontFamily: 'RobotoSlab'),),
                   SizedBox(height: 25,),
                   Text("Nota de ejemplo que se muestra en formato simple, sin decoraciones", style: TextStyle(fontSize: 25, fontFamily: 'RobotoSlab'),),

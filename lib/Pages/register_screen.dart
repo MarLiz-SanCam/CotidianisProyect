@@ -9,10 +9,10 @@ class RegisterScrn extends StatefulWidget {
   const RegisterScrn({Key? key}) : super(key: key);
 
   @override
-  _RegisterScrnState createState() => _RegisterScrnState();
+  RegisterScrnState createState() => RegisterScrnState();
 }
 
-class _RegisterScrnState extends State<RegisterScrn> {
+class RegisterScrnState extends State<RegisterScrn> {
   final emailController = TextEditingController();
   final passController = TextEditingController();
   final userController = TextEditingController();
@@ -205,6 +205,8 @@ class _RegisterScrnState extends State<RegisterScrn> {
       ),
       bottomNavigationBar: BottomAppBar(
         //Barra del fodo de la app
+        color: ChampagnePink.champagnePink,
+        //Barra del fodo de la app
         child: Text(
           'PDM - Equipo 1; Cotidianis ',
           textAlign: TextAlign.center,
@@ -212,7 +214,6 @@ class _RegisterScrnState extends State<RegisterScrn> {
             color: ChampagnePink.champagnePink[900],
           ),
         ),
-        color: ChampagnePink.champagnePink,
       ),
     );
   }

@@ -8,10 +8,10 @@ import '../Theme/light_steel_blue.dart';
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
   @override
-  _HomeScreenState createState() => _HomeScreenState();
+  HomeScreenState createState() => HomeScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateMixin{
+class HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateMixin{
   int tabslenght = 3;
   late TabController _tabController;
 
@@ -168,13 +168,13 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
       body: TabBarView(
         controller: _tabController,
         children: [
-          MyEvents(),
+          const MyEvents(),
           MyLists(),
           MyNotes(),
         ],
       ),
       bottomNavigationBar: BottomAppBar(
-        //Barra del fodo de la app
+        color: LightSteelBlue.lSteelBlue[500],
         child: Text(
           'PDM - Equipo 1; Cotidianis ',
           textAlign: TextAlign.center,
@@ -182,7 +182,6 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
             color: LightSteelBlue.lSteelBlue[50],
           ),
         ),
-        color: LightSteelBlue.lSteelBlue[500],
       ),
     );
   }

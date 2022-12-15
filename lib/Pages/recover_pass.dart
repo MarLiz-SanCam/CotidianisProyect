@@ -5,10 +5,10 @@ class PassRecover extends StatefulWidget {
   const PassRecover({Key? key}) : super(key: key);
 
   @override
-  _PassRecoverState createState() => _PassRecoverState();
+  PassRecoverState createState() => PassRecoverState();
 }
 
-class _PassRecoverState extends State<PassRecover> {
+class PassRecoverState extends State<PassRecover> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,6 +24,8 @@ class _PassRecoverState extends State<PassRecover> {
       ),
       bottomNavigationBar: BottomAppBar(
         //Barra del fodo de la app
+        color: LightSteelBlue.lSteelBlue[500],
+        //Barra del fodo de la app
         child: Text(
           'PDM - Equipo 1; Cotidianis ',
           textAlign: TextAlign.center,
@@ -31,7 +33,6 @@ class _PassRecoverState extends State<PassRecover> {
             color: LightSteelBlue.lSteelBlue[50],
           ),
         ),
-        color: LightSteelBlue.lSteelBlue[500],
       ),
     );
   }

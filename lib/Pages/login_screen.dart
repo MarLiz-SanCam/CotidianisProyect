@@ -10,10 +10,10 @@ class LogInScrn extends StatefulWidget {
   const LogInScrn({Key? key}) : super(key: key);
 
   @override
-  _LogInScrnState createState() => _LogInScrnState();
+  LogInScrnState createState() => LogInScrnState();
 }
 
-class _LogInScrnState extends State<LogInScrn> {
+class LogInScrnState extends State<LogInScrn> {
   final emailController = TextEditingController();
   final passController = TextEditingController();
 
@@ -154,7 +154,7 @@ class _LogInScrnState extends State<LogInScrn> {
         ],
       ),
       bottomNavigationBar: BottomAppBar(
-        //Barra del fodo de la app
+        color: LightSteelBlue.lSteelBlue[500],
         child: Text(
           'PDM - Equipo 1; Cotidianis ',
           textAlign: TextAlign.center,
@@ -162,7 +162,6 @@ class _LogInScrnState extends State<LogInScrn> {
             color: LightSteelBlue.lSteelBlue[50],
           ),
         ),
-        color: LightSteelBlue.lSteelBlue[500],
       ),
     );
   }

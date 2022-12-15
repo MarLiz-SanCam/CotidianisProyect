@@ -22,8 +22,6 @@ class _ShowListState extends State<ShowList> {
 
   @override
   Widget build(BuildContext context) {
-    var _checked = false;
-    var value;
     return Scaffold(
       appBar: AppBar(
         //Barra de la aplicación

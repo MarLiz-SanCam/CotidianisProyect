@@ -1,6 +1,5 @@
 // ignore_for_file: avoid_print
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../Theme/champagne_pink.dart';
 import '../Theme/light_steel_blue.dart';
@@ -20,7 +19,7 @@ class _AddNewT extends State<Teams> {
       appBar: AppBar(
         //Barra de la aplicación
         centerTitle: true, //Centra el título de la barra de la aplicación
-        title: Text(
+        title: const Text(
           'PDM proyect',
           //Texto para el título de la aplicación (aparece en la barra)
           style: TextStyle(fontSize: 22.0, fontFamily: 'RobotoSlab'),
@@ -33,7 +32,7 @@ class _AddNewT extends State<Teams> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              SizedBox(height: 50),
+              const SizedBox(height: 50),
               Card(
                 color: LightSteelBlue.lSteelBlue[50],
                 child: ListTile(
@@ -50,13 +49,13 @@ class _AddNewT extends State<Teams> {
                           color: ChampagnePink.champagnePink[500]),
                     ),
                   ),
-                  title: Text("My Team Example", style: TextStyle(
+                  title: const Text("My Team Example", style: TextStyle(
                       fontSize: 20
                   ),
 
                   ),
-                  subtitle: Text("Líder: User Test (yo)"),
-                  trailing: Icon(
+                  subtitle: const Text("Líder: User Test (yo)"),
+                  trailing: const Icon(
                     Icons.navigate_next_rounded,
                     size: 40,
                   ),
@@ -74,8 +73,10 @@ class _AddNewT extends State<Teams> {
           Navigator.of(context).pushNamed("/AddTeam");
           print("Presionaste");
         },
-        child: Icon(Icons.add),),
+        child: const Icon(Icons.add),),
       bottomNavigationBar: BottomAppBar(
+        //Barra del fodo de la app
+        color: ChampagnePink.champagnePink[300],
         //Barra del fodo de la app
         child: Text(
           'PDM - equipo 1; debug version; MarLiz~',
@@ -84,7 +85,6 @@ class _AddNewT extends State<Teams> {
             color: ChampagnePink.champagnePink[50],
           ),
         ),
-        color: ChampagnePink.champagnePink[300],
       ),
     );
   }

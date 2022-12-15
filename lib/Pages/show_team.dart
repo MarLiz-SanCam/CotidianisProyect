@@ -9,10 +9,10 @@ import '../Theme/light_steel_blue.dart';
 class ShowTeam extends StatefulWidget {
   const ShowTeam({Key? key}) : super(key: key);
   @override
-  _ShowTeamState createState() => _ShowTeamState();
+  ShowTeamState createState() => ShowTeamState();
 }
 
-class _ShowTeamState extends State<ShowTeam> with SingleTickerProviderStateMixin{
+class ShowTeamState extends State<ShowTeam> with SingleTickerProviderStateMixin{
   int tabslenght = 2;
   late TabController _tabController;
 
@@ -165,12 +165,14 @@ class _ShowTeamState extends State<ShowTeam> with SingleTickerProviderStateMixin
       body: TabBarView(
         controller: _tabController,
         children: [
-          MyEvents(),
+          const MyEvents(),
           MyLists(),
           MyNotes(),
         ],
       ),
       bottomNavigationBar: BottomAppBar(
+        //Barra del fodo de la app
+        color: LightSteelBlue.lSteelBlue[500],
         //Barra del fodo de la app
         child: Text(
           'PDM - Equipo 1; Cotidianis ',
@@ -179,7 +181,6 @@ class _ShowTeamState extends State<ShowTeam> with SingleTickerProviderStateMixin
             color: LightSteelBlue.lSteelBlue[50],
           ),
         ),
-        color: LightSteelBlue.lSteelBlue[500],
       ),
     );
   }
