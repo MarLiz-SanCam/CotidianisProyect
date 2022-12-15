@@ -2,14 +2,12 @@
 import 'package:flutter/material.dart';
 import '../Theme/champagne_pink.dart';
 
-
 // --------------------------  Fin de los 'import' -------------------------- //
 // Página principal de la aplicación.
 class FirstScreen extends StatelessWidget {
   const FirstScreen({Key? key}) : super(key: key);
 
   @override
-
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
@@ -19,7 +17,8 @@ class FirstScreen extends StatelessWidget {
         title: const Text(
           'COTIDIANIS',
           //Texto para el título de la aplicación (aparece en la barra)
-          style: TextStyle(fontSize: 22.0, fontFamily: 'RobotoSlab', color: Colors.black),
+          style: TextStyle(
+              fontSize: 22.0, fontFamily: 'RobotoSlab', color: Colors.black),
         ),
         backgroundColor: ChampagnePink.champagnePink,
       ),
@@ -56,7 +55,6 @@ class FirstScreen extends StatelessWidget {
                           },
                           child: const Text(
                             'Registrarse',
-
                             style: TextStyle(
                               color: ChampagnePink.champagnePink,
                               //fontFamily: 'PTSerif',
@@ -71,8 +69,7 @@ class FirstScreen extends StatelessWidget {
                       MaterialButton(
                           color: ChampagnePink.champagnePink[900],
                           shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(10.0)
-                          ),
+                              borderRadius: BorderRadius.circular(10.0)),
                           elevation: 5,
                           height: 60.0,
                           minWidth: 170.0,
@@ -89,30 +86,16 @@ class FirstScreen extends StatelessWidget {
                               fontSize: 20.0,
                             ),
                             textAlign: TextAlign.center,
-                          )
-                      ),
+                          )),
                     ],
                   ),
                 ),
                 const SizedBox(
                   height: 230.0,
                 ),
-
               ],
             ),
           ],
-        ),
-      ),
-      bottomNavigationBar: BottomAppBar(
-        //Barra del fodo de la app
-        color: ChampagnePink.champagnePink,
-        //Barra del fodo de la app
-        child: Text(
-          'PDM - Equipo 1; Cotidianis ',
-          textAlign: TextAlign.center,
-          style: TextStyle(
-            color: ChampagnePink.champagnePink[900],
-          ),
         ),
       ),
     );

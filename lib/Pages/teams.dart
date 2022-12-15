@@ -4,15 +4,16 @@ import 'package:flutter/material.dart';
 import '../Theme/champagne_pink.dart';
 import '../Theme/light_steel_blue.dart';
 
-class Teams extends StatefulWidget{
-  const Teams({Key? key,}) : super(key: key);
+class Teams extends StatefulWidget {
+  const Teams({
+    Key? key,
+  }) : super(key: key);
   @override
   State<Teams> createState() => _AddNewT();
 }
 
 class _AddNewT extends State<Teams> {
   @override
-
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
@@ -36,7 +37,7 @@ class _AddNewT extends State<Teams> {
               Card(
                 color: LightSteelBlue.lSteelBlue[50],
                 child: ListTile(
-                  onLongPress: (){
+                  onLongPress: () {
                     Navigator.of(context).pushNamed("/ShowTeam");
                   },
                   leading: CircleAvatar(
@@ -49,42 +50,29 @@ class _AddNewT extends State<Teams> {
                           color: ChampagnePink.champagnePink[500]),
                     ),
                   ),
-                  title: const Text("My Team Example", style: TextStyle(
-                      fontSize: 20
-                  ),
-
+                  title: const Text(
+                    "My Team Example",
+                    style: TextStyle(fontSize: 20),
                   ),
                   subtitle: const Text("Líder: User Test (yo)"),
                   trailing: const Icon(
                     Icons.navigate_next_rounded,
                     size: 40,
                   ),
-                  onTap: (){},
+                  onTap: () {},
                 ),
               ),
-
             ],
           ),
         ],
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
       floatingActionButton: FloatingActionButton(
-        onPressed: (){
+        onPressed: () {
           Navigator.of(context).pushNamed("/AddTeam");
           print("Presionaste");
         },
-        child: const Icon(Icons.add),),
-      bottomNavigationBar: BottomAppBar(
-        //Barra del fodo de la app
-        color: ChampagnePink.champagnePink[300],
-        //Barra del fodo de la app
-        child: Text(
-          'PDM - equipo 1; debug version; MarLiz~',
-          textAlign: TextAlign.center,
-          style: TextStyle(
-            color: ChampagnePink.champagnePink[50],
-          ),
-        ),
+        child: const Icon(Icons.add),
       ),
     );
   }

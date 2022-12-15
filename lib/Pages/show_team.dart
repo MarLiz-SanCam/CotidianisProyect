@@ -12,7 +12,8 @@ class ShowTeam extends StatefulWidget {
   ShowTeamState createState() => ShowTeamState();
 }
 
-class ShowTeamState extends State<ShowTeam> with SingleTickerProviderStateMixin{
+class ShowTeamState extends State<ShowTeam>
+    with SingleTickerProviderStateMixin {
   int tabslenght = 2;
   late TabController _tabController;
 
@@ -27,6 +28,7 @@ class ShowTeamState extends State<ShowTeam> with SingleTickerProviderStateMixin{
     _tabController.dispose();
     super.dispose();
   }
+
   @override
   Widget build(BuildContext context) {
     final user = FirebaseAuth.instance.currentUser!;
@@ -37,15 +39,17 @@ class ShowTeamState extends State<ShowTeam> with SingleTickerProviderStateMixin{
         title: Text(
           'EQUIPO 1',
           //Texto para el título de la aplicación (aparece en la barra)
-          style: TextStyle(fontSize: 22.0, fontFamily: 'RobotoSlab', color: LightSteelBlue.lSteelBlue[50]),
+          style: TextStyle(
+              fontSize: 22.0,
+              fontFamily: 'RobotoSlab',
+              color: LightSteelBlue.lSteelBlue[50]),
         ),
         bottom: TabBar(
             controller: _tabController,
             indicatorColor: ChampagnePink.champagnePink[900],
             unselectedLabelColor: ChampagnePink.champagnePink[50],
             labelColor: ChampagnePink.champagnePink[200],
-            tabs: const[
-
+            tabs: const [
               Tab(
                 text: "Mis Listas",
                 icon: Icon(Icons.view_list_rounded),
@@ -54,8 +58,7 @@ class ShowTeamState extends State<ShowTeam> with SingleTickerProviderStateMixin{
                 text: "Mis Notas",
                 icon: Icon(Icons.library_books_rounded),
               ),
-            ]
-        ),
+            ]),
         backgroundColor: LightSteelBlue.lSteelBlue[700],
       ),
       drawer: Drawer(
@@ -79,7 +82,7 @@ class ShowTeamState extends State<ShowTeam> with SingleTickerProviderStateMixin{
                     backgroundColor: ChampagnePink.champagnePink[100],
                     radius: 35,
                     child: Text(
-                      "MaP",//TODO: vava ser la foto de perfil del usuario
+                      "MaP", //TODO: vava ser la foto de perfil del usuario
                       style: TextStyle(
                           fontSize: 20,
                           color: ChampagnePink.champagnePink[500]),
@@ -88,15 +91,19 @@ class ShowTeamState extends State<ShowTeam> with SingleTickerProviderStateMixin{
                   Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    children:[
+                    children: [
                       Text(
                         //user.displayName!,
                         "UserNameHere",
-                        style: TextStyle(fontSize: 25, color: ChampagnePink.champagnePink[100]),
+                        style: TextStyle(
+                            fontSize: 25,
+                            color: ChampagnePink.champagnePink[100]),
                       ),
                       Text(
                         user.email!,
-                        style: TextStyle(fontSize: 15, color: ChampagnePink.champagnePink[900]),
+                        style: TextStyle(
+                            fontSize: 15,
+                            color: ChampagnePink.champagnePink[900]),
                       ),
                     ],
                   ),
@@ -104,11 +111,10 @@ class ShowTeamState extends State<ShowTeam> with SingleTickerProviderStateMixin{
               ),
             ),
             ListTile(
-
               title: const Text(
                 'Ver Perfil',
                 textScaleFactor: 1.5,
-                style: TextStyle(color: Colors.grey, fontFamily: 'RobotoSlab' ),
+                style: TextStyle(color: Colors.grey, fontFamily: 'RobotoSlab'),
               ),
               onTap: () {
                 // TODO:Update the state of the app
@@ -121,7 +127,9 @@ class ShowTeamState extends State<ShowTeam> with SingleTickerProviderStateMixin{
               title: const Text(
                 'Equipos de trabajo',
                 textScaleFactor: 1.5,
-                style: TextStyle(color: ChampagnePink.champagnePink, fontFamily: 'RobotoSlab' ),
+                style: TextStyle(
+                    color: ChampagnePink.champagnePink,
+                    fontFamily: 'RobotoSlab'),
               ),
               onTap: () {
                 // TODO:Update the state of the app
@@ -133,27 +141,26 @@ class ShowTeamState extends State<ShowTeam> with SingleTickerProviderStateMixin{
             ListTile(
               title: const Text(
                 'Configuración',
-                style: TextStyle( color: Colors.grey, fontFamily: 'RobotoSlab'),
+                style: TextStyle(color: Colors.grey, fontFamily: 'RobotoSlab'),
                 textScaleFactor: 1.5,
               ),
-              onTap: () {
-              },
+              onTap: () {},
             ),
             ListTile(
-
               title: const Text(
                 'Preferencias',
-                style: TextStyle( color: Colors.grey, fontFamily: 'RobotoSlab'),
+                style: TextStyle(color: Colors.grey, fontFamily: 'RobotoSlab'),
                 textScaleFactor: 1.5,
               ),
-              onTap: () {
-              },
+              onTap: () {},
             ),
             ListTile(
               title: const Text(
                 'Cerrar Sesion',
                 textScaleFactor: 1.5,
-                style: TextStyle(color: ChampagnePink.champagnePink, fontFamily: 'RobotoSlab' ),
+                style: TextStyle(
+                    color: ChampagnePink.champagnePink,
+                    fontFamily: 'RobotoSlab'),
               ),
               onTap: () async {
                 FirebaseAuth.instance.signOut();
@@ -169,18 +176,6 @@ class ShowTeamState extends State<ShowTeam> with SingleTickerProviderStateMixin{
           MyLists(),
           MyNotes(),
         ],
-      ),
-      bottomNavigationBar: BottomAppBar(
-        //Barra del fodo de la app
-        color: LightSteelBlue.lSteelBlue[500],
-        //Barra del fodo de la app
-        child: Text(
-          'PDM - Equipo 1; Cotidianis ',
-          textAlign: TextAlign.center,
-          style: TextStyle(
-            color: LightSteelBlue.lSteelBlue[50],
-          ),
-        ),
       ),
     );
   }

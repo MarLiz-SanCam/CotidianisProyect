@@ -18,14 +18,14 @@ class RegisterScrnState extends State<RegisterScrn> {
   final userController = TextEditingController();
 
   @override
-  void dispose(){
+  void dispose() {
     emailController.dispose();
     passController.dispose();
     super.dispose();
   }
+
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       appBar: AppBar(
         //Barra de la aplicación
@@ -33,7 +33,8 @@ class RegisterScrnState extends State<RegisterScrn> {
         title: const Text(
           'COTIDIANIS',
           //Texto para el título de la aplicación (aparece en la barra)
-          style: TextStyle(fontSize: 22.0, fontFamily: 'RobotoSlab', color: Colors.black),
+          style: TextStyle(
+              fontSize: 22.0, fontFamily: 'RobotoSlab', color: Colors.black),
         ),
         backgroundColor: ChampagnePink.champagnePink,
       ),
@@ -44,8 +45,9 @@ class RegisterScrnState extends State<RegisterScrn> {
             padding: const EdgeInsets.symmetric(vertical: 25.0, horizontal: 40),
             child: Column(
               children: [
-                const CircleAvatar(/*TODO; allow the user to put their own profile picture*/
-                radius: 60,
+                const CircleAvatar(
+                  /*TODO; allow the user to put their own profile picture*/
+                  radius: 60,
                 ),
                 const SizedBox(
                   height: 25.0,
@@ -74,11 +76,9 @@ class RegisterScrnState extends State<RegisterScrn> {
                         autocorrect: false,
                         keyboardType: TextInputType.emailAddress,
                         cursorColor: LightSteelBlue.lSteelBlue,
-                        decoration: const InputDecoration(
-                            labelText: "Nombre"
-                        ),
-                        validator: (userName){
-                          if (userName!.isEmpty){
+                        decoration: const InputDecoration(labelText: "Nombre"),
+                        validator: (userName) {
+                          if (userName!.isEmpty) {
                             return '¡Ingrese su nombre!';
                           }
                         },
@@ -90,10 +90,9 @@ class RegisterScrnState extends State<RegisterScrn> {
                         keyboardType: TextInputType.emailAddress,
                         cursorColor: LightSteelBlue.lSteelBlue,
                         decoration: const InputDecoration(
-                          labelText: "Correo Electrónico"
-                        ),
-                        validator: (value){
-                          if (value!.isEmpty){
+                            labelText: "Correo Electrónico"),
+                        validator: (value) {
+                          if (value!.isEmpty) {
                             return '¡Ingrese su nombre!';
                           }
                         },
@@ -106,10 +105,9 @@ class RegisterScrnState extends State<RegisterScrn> {
                         keyboardType: TextInputType.emailAddress,
                         cursorColor: LightSteelBlue.lSteelBlue,
                         decoration: const InputDecoration(
-                            labelText: "Confirmar Correo Electrónico"
-                        ),
-                        validator: (value){
-                          if (value!.isEmpty){
+                            labelText: "Confirmar Correo Electrónico"),
+                        validator: (value) {
+                          if (value!.isEmpty) {
                             return '¡Ingrese su nombre!';
                           }
                         },
@@ -121,11 +119,10 @@ class RegisterScrnState extends State<RegisterScrn> {
                         obscureText: true,
                         keyboardType: TextInputType.emailAddress,
                         cursorColor: LightSteelBlue.lSteelBlue,
-                        decoration: const InputDecoration(
-                            labelText: "Contraseña"
-                        ),
-                        validator: (value){
-                          if (value!.isEmpty){
+                        decoration:
+                            const InputDecoration(labelText: "Contraseña"),
+                        validator: (value) {
+                          if (value!.isEmpty) {
                             return '¡Ingrese su nombre!';
                           }
                         },
@@ -139,10 +136,9 @@ class RegisterScrnState extends State<RegisterScrn> {
                         keyboardType: TextInputType.emailAddress,
                         cursorColor: LightSteelBlue.lSteelBlue,
                         decoration: const InputDecoration(
-                            labelText: "Confirmar Contraseña"
-                        ),
-                        validator: (value){
-                          if (value!.isEmpty){
+                            labelText: "Confirmar Contraseña"),
+                        validator: (value) {
+                          if (value!.isEmpty) {
                             return '¡Ingrese su nombre!';
                           }
                         },
@@ -160,32 +156,31 @@ class RegisterScrnState extends State<RegisterScrn> {
                     ElevatedButton(
                         style: ButtonStyle(
                           backgroundColor: MaterialStateProperty.all<Color>(
-                            LightSteelBlue.lSteelBlue),
+                              LightSteelBlue.lSteelBlue),
                         ),
-                        onPressed:(){
+                        onPressed: () {
                           Navigator.of(context).pop();
                         },
                         child: const Text("Cancelar",
-                        style: TextStyle(
-                          fontSize: 18.0
-                        ))
-                    ),
+                            style: TextStyle(fontSize: 18.0))),
                     const SizedBox(width: 50),
-                    ElevatedButton( 
+                    ElevatedButton(
                         style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all<Color>(
-                          LightSteelBlue.lSteelBlue),
-                    ), 
-                        onPressed:(){
-                          FirebaseAuth.instance.createUserWithEmailAndPassword(
-
-                              email: emailController.text,
-                              password: passController.text
-                          ).then((value) {
+                          backgroundColor: MaterialStateProperty.all<Color>(
+                              LightSteelBlue.lSteelBlue),
+                        ),
+                        onPressed: () {
+                          FirebaseAuth.instance
+                              .createUserWithEmailAndPassword(
+                                  email: emailController.text,
+                                  password: passController.text)
+                              .then((value) {
                             Navigator.of(context).pushNamed("/LogInScrn");
-                            ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Cuenta creada exitosamente. Inicie sesión")));
-                          }
-                          ).onError((error, stackTrace){
+                            ScaffoldMessenger.of(context).showSnackBar(
+                                const SnackBar(
+                                    content: Text(
+                                        "Cuenta creada exitosamente. Inicie sesión")));
+                          }).onError((error, stackTrace) {
                             print("Error: ${error.toString()}");
                           });
                           // Navigator.of(context).pushNamed("/LogInScrn");
@@ -193,9 +188,7 @@ class RegisterScrnState extends State<RegisterScrn> {
                           //     const SnackBar(content: Text('Cuenta Creada; ¡¡Inicia Sesión!!')));
                         },
                         child: const Text("Crear Cuenta",
-                            style: TextStyle(
-                                fontSize: 18.0
-                            ))),
+                            style: TextStyle(fontSize: 18.0))),
                   ],
                 ),
               ],
@@ -203,18 +196,7 @@ class RegisterScrnState extends State<RegisterScrn> {
           ),
         ],
       ),
-      bottomNavigationBar: BottomAppBar(
-        //Barra del fodo de la app
-        color: ChampagnePink.champagnePink,
-        //Barra del fodo de la app
-        child: Text(
-          'PDM - Equipo 1; Cotidianis ',
-          textAlign: TextAlign.center,
-          style: TextStyle(
-            color: ChampagnePink.champagnePink[900],
-          ),
-        ),
-      ),
+
     );
   }
 }

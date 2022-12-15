@@ -18,22 +18,14 @@ class PassRecoverState extends State<PassRecover> {
         title: Text(
           'Recuperar Constraseña',
           //Texto para el título de la aplicación (aparece en la barra)
-          style: TextStyle(fontSize: 22.0, fontFamily: 'RobotoSlab', color: LightSteelBlue.lSteelBlue[50]),
+          style: TextStyle(
+              fontSize: 22.0,
+              fontFamily: 'RobotoSlab',
+              color: LightSteelBlue.lSteelBlue[50]),
         ),
         backgroundColor: LightSteelBlue.lSteelBlue[500],
       ),
-      bottomNavigationBar: BottomAppBar(
-        //Barra del fodo de la app
-        color: LightSteelBlue.lSteelBlue[500],
-        //Barra del fodo de la app
-        child: Text(
-          'PDM - Equipo 1; Cotidianis ',
-          textAlign: TextAlign.center,
-          style: TextStyle(
-            color: LightSteelBlue.lSteelBlue[50],
-          ),
-        ),
-      ),
+
     );
   }
 }
