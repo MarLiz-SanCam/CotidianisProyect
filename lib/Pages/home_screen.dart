@@ -4,6 +4,7 @@ import 'package:cotidianis_pdm/Content/my_events.dart';
 import 'package:cotidianis_pdm/Content/my_lists.dart';
 import 'package:cotidianis_pdm/Theme/buff.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:floating_action_bubble/floating_action_bubble.dart';
 import 'package:flutter/material.dart';
 import '../Theme/steel_blue.dart';
 
@@ -13,15 +14,22 @@ class HomeScreen extends StatefulWidget {
   HomeScreenState createState() => HomeScreenState();
 }
 
-class HomeScreenState extends State<HomeScreen>
-    with SingleTickerProviderStateMixin {
+class HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
   int tabslenght = 3;
   late TabController _tabController;
   final CollectionReference users = FirebaseFirestore.instance.collection("Users");
-
+  late Animation<double> _animation;
+  late AnimationController _animationController;
   //String username = users.doc(username).get();
   @override
   void initState() {
+    _animationController = AnimationController(
+      vsync: this,
+      duration: Duration(milliseconds: 260),
+    );
+    final curvedAnimation = CurvedAnimation(
+        curve: Curves.easeInOut, parent: _animationController);
+    _animation = Tween<double>(begin: 0, end: 1).animate(curvedAnimation);
     super.initState();
     _tabController = TabController(length: tabslenght, vsync: this);
   }
@@ -187,12 +195,36 @@ class HomeScreenState extends State<HomeScreen>
         ],
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Navigator.of(context).pushNamed("/ShowList");
-          print("Presionaste");
-        },
-        child: const Icon(Icons.add),
+      floatingActionButton: FloatingActionBubble(
+        items: <Bubble>[
+          Bubble(
+            title: "Personal",
+            iconColor: Colors.white,
+            bubbleColor: Buff.buff.shade200,
+            icon: Icons.person,
+            titleStyle: TextStyle(fontSize: 18, color: Colors.white),
+            onPress: () {
+              _animationController.reverse();
+            },
+          ),
+          Bubble(
+            title: "Equipo",
+            iconColor: Colors.white,
+            bubbleColor: Buff.buff.shade200,
+            icon: Icons.people,
+            titleStyle: TextStyle(fontSize: 18, color: Colors.white),
+            onPress: () {
+              _animationController.reverse();
+            },
+          ),
+        ],
+        animation: _animation,
+        onPress: () => _animationController.isCompleted
+            ? _animationController.reverse()
+            : _animationController.forward(),
+        iconColor: Colors.white,
+        iconData: Icons.add,
+        backGroundColor: Buff.buff,
       ),
     );
   }
