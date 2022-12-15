@@ -98,7 +98,7 @@ class HomeScreenState extends State<HomeScreen>
                     children: [
                       Text(
                         //user.displayName!,
-                        "UserNameHere",
+                        ,
                         style: TextStyle(
                             fontSize: 25,
                             color: Buff.buff[100]),

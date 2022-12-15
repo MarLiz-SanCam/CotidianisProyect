@@ -53,7 +53,7 @@ class _EditProfile extends State<EditProfile> {
                 ),
               ),
               onPressed: () {
-                Navigator.of(context).pop();
+                //TODO: permitir al usuario agregar foto de perfil
               },
               child: Text("Editar",
                   style: TextStyle(fontSize: 18.0,color: Buff.buff.shade700))
@@ -104,7 +104,7 @@ class _EditProfile extends State<EditProfile> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
+                  const Text(
                     "E-mail:",
                     style: TextStyle(
                       fontSize: 18,
@@ -114,7 +114,7 @@ class _EditProfile extends State<EditProfile> {
                   ),
                   Text(
                     user.email!,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 21,
                       fontFamily: "Roboto",
                       fontWeight: FontWeight.w500
@@ -147,7 +147,7 @@ class _EditProfile extends State<EditProfile> {
                   ),
                   Text(
                     user.email!,
-                    style: TextStyle(
+                    style: const TextStyle(
                         fontSize: 21,
                         fontFamily: "Roboto",
                         fontWeight: FontWeight.w500
@@ -155,22 +155,22 @@ class _EditProfile extends State<EditProfile> {
                   ),
                   Text(
                     user.email!,
+                    style: const TextStyle(
+                        fontSize: 21,
+                        fontFamily: "Roboto",
+                        fontWeight: FontWeight.w500
+                    ),
+                  ),
+                  const Text(
+                    "Equipo 1",
                     style: TextStyle(
                         fontSize: 21,
                         fontFamily: "Roboto",
                         fontWeight: FontWeight.w500
                     ),
                   ),
-                  Text(
-                    user.email!,
-                    style: TextStyle(
-                        fontSize: 21,
-                        fontFamily: "Roboto",
-                        fontWeight: FontWeight.w500
-                    ),
-                  ),
-                  Text(
-                    user.email!,
+                  const Text(
+                    "Equipo X",
                     style: TextStyle(
                         fontSize: 21,
                         fontFamily: "Roboto",
@@ -180,6 +180,10 @@ class _EditProfile extends State<EditProfile> {
                 ],
               ),
             ],
+          ),
+          const SizedBox(
+            height: 70,
+            width: 300,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,

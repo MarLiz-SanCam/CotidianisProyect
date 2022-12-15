@@ -39,7 +39,7 @@ class LogInScrnState extends State<LogInScrn> {
         ),
         backgroundColor: Buff.buff[400],
       ),
-      body: Column(
+      body: ListView(
         children: [
           Container(
             //color: SonicSilver.sonicSilver[100],
@@ -80,7 +80,8 @@ class LogInScrnState extends State<LogInScrn> {
                       const SizedBox(height: 30),
                       TextFormField(
                         //TODO: validaddor de la contraseña
-
+                        controller: passController,
+                        obscureText: true,
                         decoration:
                             const InputDecoration(labelText: "Contraseña"),
                         validator: (value) {

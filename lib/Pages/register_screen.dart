@@ -1,5 +1,6 @@
 // ignore_for_file: avoid_print, body_might_complete_normally_nullable
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:cotidianis_pdm/Theme/steel_blue.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -16,7 +17,17 @@ class RegisterScrnState extends State<RegisterScrn> {
   final emailController = TextEditingController();
   final passController = TextEditingController();
   final userController = TextEditingController();
-
+  final CollectionReference users = FirebaseFirestore.instance.collection("Users");
+  String username = '';
+  String e_mail = '';
+  String pass_word = '';
+  @override
+  void initState(){
+    super.initState();
+    emailController.addListener(() {});
+    passController.addListener(() { });
+    userController.addListener(() { });
+  }
   @override
   void dispose() {
     emailController.dispose();
@@ -26,6 +37,8 @@ class RegisterScrnState extends State<RegisterScrn> {
 
   @override
   Widget build(BuildContext context) {
+
+
     return Scaffold(
       appBar: AppBar(
         //Barra de la aplicación
@@ -82,6 +95,10 @@ class RegisterScrnState extends State<RegisterScrn> {
                             return '¡Ingrese su nombre!';
                           }
                         },
+                        onChanged: (userName){
+                          username = userName;
+                        },
+
                       ),
                       const SizedBox(height: 30),
                       TextFormField(
@@ -111,19 +128,21 @@ class RegisterScrnState extends State<RegisterScrn> {
                             return '¡Ingrese su nombre!';
                           }
                         },
+                        onChanged: (email){
+                          e_mail = email;
+                        },
                       ),
                       const SizedBox(height: 30),
                       TextFormField(
                         //TODO: validaddor de la contraseña
                         autocorrect: false,
                         obscureText: true,
-                        keyboardType: TextInputType.emailAddress,
                         cursorColor: LightSteelBlue.lSteelBlue,
                         decoration:
                             const InputDecoration(labelText: "Contraseña"),
                         validator: (value) {
                           if (value!.isEmpty) {
-                            return '¡Ingrese su nombre!';
+                            return '¡Ingrese su Contraseña';
                           }
                         },
                       ),
@@ -133,14 +152,17 @@ class RegisterScrnState extends State<RegisterScrn> {
                         controller: passController,
                         obscureText: true,
                         autocorrect: false,
-                        keyboardType: TextInputType.emailAddress,
                         cursorColor: LightSteelBlue.lSteelBlue,
                         decoration: const InputDecoration(
                             labelText: "Confirmar Contraseña"),
                         validator: (value) {
                           if (value!.isEmpty) {
-                            return '¡Ingrese su nombre!';
+                            return '¡Ingrese su contraseña';
                           }
+                          return null;
+                        },
+                        onChanged: (password){
+                          pass_word = password;
                         },
                       ),
                     ],
@@ -170,6 +192,8 @@ class RegisterScrnState extends State<RegisterScrn> {
                               LightSteelBlue.lSteelBlue),
                         ),
                         onPressed: () {
+                          users.doc(username).set({'UserName':username,'Email':e_mail, 'Password':pass_word});
+
                           FirebaseAuth.instance
                               .createUserWithEmailAndPassword(
                                   email: emailController.text,
@@ -182,6 +206,8 @@ class RegisterScrnState extends State<RegisterScrn> {
                                         "Cuenta creada exitosamente. Inicie sesión")));
                           }).onError((error, stackTrace) {
                             print("Error: ${error.toString()}");
+                            SnackBar(
+                                content: Text("Error: ${error.toString()}"));
                           });
                           // Navigator.of(context).pushNamed("/LogInScrn");
                           // ScaffoldMessenger.of(context).showSnackBar(

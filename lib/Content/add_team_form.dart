@@ -47,7 +47,7 @@ class _AddTeam extends State<AddTeam> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         TextFormField(
-                          //TODO: validaddor del nombre
+                          //TODO: Ingresar nombre del equipo
                           controller: titleController,
                           autocorrect: false,
                           keyboardType: TextInputType.emailAddress,
@@ -64,7 +64,7 @@ class _AddTeam extends State<AddTeam> {
                         const SizedBox(height: 30),
                         const Text("Añadir participante"),
                         TextFormField(
-                          //TODO: validaddor del nombre
+                          //TODO: Agregar participantes
                           autocorrect: false,
                           keyboardType: TextInputType.emailAddress,
                           cursorColor: LightSteelBlue.lSteelBlue,
