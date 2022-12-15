@@ -198,21 +198,31 @@ class HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
       floatingActionButton: FloatingActionBubble(
         items: <Bubble>[
           Bubble(
-            title: "Personal",
-            iconColor: Colors.white,
+            title: "Lista",
+            iconColor: Buff.buff.shade800,
             bubbleColor: Buff.buff.shade200,
-            icon: Icons.person,
-            titleStyle: TextStyle(fontSize: 18, color: Colors.white),
+            icon: Icons.library_books_rounded,
+            titleStyle: TextStyle(fontSize: 18, color:  Buff.buff.shade800,),
             onPress: () {
               _animationController.reverse();
             },
           ),
           Bubble(
-            title: "Equipo",
-            iconColor: Colors.white,
+            title: "Nota",
+            iconColor: Buff.buff.shade800,
             bubbleColor: Buff.buff.shade200,
-            icon: Icons.people,
-            titleStyle: TextStyle(fontSize: 18, color: Colors.white),
+            icon: Icons.note_rounded,
+            titleStyle: TextStyle(fontSize: 18, color:  Buff.buff.shade800,),
+            onPress: () {
+              _animationController.reverse();
+            },
+          ),
+          Bubble(
+            title: "Evento",
+            iconColor: Buff.buff.shade800,
+            bubbleColor: Buff.buff.shade200,
+            icon: Icons.calendar_month_rounded,
+            titleStyle: TextStyle(fontSize: 18, color:  Buff.buff.shade800,),
             onPress: () {
               _animationController.reverse();
             },
