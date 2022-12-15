@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:cotidianis_pdm/Content/my_notes.dart';
 import 'package:cotidianis_pdm/Content/my_events.dart';
 import 'package:cotidianis_pdm/Content/my_lists.dart';
@@ -16,7 +17,9 @@ class HomeScreenState extends State<HomeScreen>
     with SingleTickerProviderStateMixin {
   int tabslenght = 3;
   late TabController _tabController;
+  final CollectionReference users = FirebaseFirestore.instance.collection("Users");
 
+  //String username = users.doc(username).get();
   @override
   void initState() {
     super.initState();
@@ -32,6 +35,9 @@ class HomeScreenState extends State<HomeScreen>
   @override
   Widget build(BuildContext context) {
     final user = FirebaseAuth.instance.currentUser!;
+    //String userid = FirebaseAuth.instance.currentUser!.uid.toString();
+    //users.doc(userid).get({'UserName': });
+    //String username = users.doc().get();
     return Scaffold(
       appBar: AppBar(
         //Barra de la aplicación
@@ -96,18 +102,18 @@ class HomeScreenState extends State<HomeScreen>
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
-                        //user.displayName!,
-                        ,
-                        style: TextStyle(
-                            fontSize: 25,
-                            color: Buff.buff[100]),
-                      ),
+                      // Text(
+                      //   " ",
+                      //   //users.doc().get({username}).toString(),
+                      //   style: TextStyle(
+                      //       fontSize: 25,
+                      //       color: Buff.buff[100]),
+                      // ),
                       Text(
                         user.email!,
                         style: TextStyle(
-                            fontSize: 15,
-                            color: Buff.buff[900]),
+                            fontSize: 22,
+                            color: Buff.buff[100]),
                       ),
                     ],
                   ),
@@ -179,6 +185,14 @@ class HomeScreenState extends State<HomeScreen>
           MyLists(),
           MyNotes(),
         ],
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.of(context).pushNamed("/ShowList");
+          print("Presionaste");
+        },
+        child: const Icon(Icons.add),
       ),
     );
   }

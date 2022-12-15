@@ -1,4 +1,4 @@
-// ignore_for_file: avoid_print, body_might_complete_normally_nullable
+// ignore_for_file: avoid_print, body_might_complete_normally_nullable, non_constant_identifier_names
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:cotidianis_pdm/Theme/steel_blue.dart';
@@ -6,13 +6,12 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import '../Theme/buff.dart';
 
+
 class RegisterScrn extends StatefulWidget {
   const RegisterScrn({Key? key}) : super(key: key);
-
   @override
   RegisterScrnState createState() => RegisterScrnState();
 }
-
 class RegisterScrnState extends State<RegisterScrn> {
   final emailController = TextEditingController();
   final passController = TextEditingController();
@@ -95,8 +94,8 @@ class RegisterScrnState extends State<RegisterScrn> {
                             return '¡Ingrese su nombre!';
                           }
                         },
-                        onChanged: (userName){
-                          username = userName;
+                        onChanged: (name){
+                          username = name;
                         },
 
                       ),
@@ -192,8 +191,6 @@ class RegisterScrnState extends State<RegisterScrn> {
                               LightSteelBlue.lSteelBlue),
                         ),
                         onPressed: () {
-                          users.doc(username).set({'UserName':username,'Email':e_mail, 'Password':pass_word});
-
                           FirebaseAuth.instance
                               .createUserWithEmailAndPassword(
                                   email: emailController.text,
@@ -209,6 +206,8 @@ class RegisterScrnState extends State<RegisterScrn> {
                             SnackBar(
                                 content: Text("Error: ${error.toString()}"));
                           });
+
+                          users.doc().set({'UserName':username,'Email':e_mail, 'Password':pass_word,});
                           // Navigator.of(context).pushNamed("/LogInScrn");
                           // ScaffoldMessenger.of(context).showSnackBar(
                           //     const SnackBar(content: Text('Cuenta Creada; ¡¡Inicia Sesión!!')));

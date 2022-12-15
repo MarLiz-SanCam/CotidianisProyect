@@ -90,18 +90,18 @@ class ShowTeamState extends State<ShowTeam>
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
-                        //user.displayName!,
-                        "UserNameHere",
-                        style: TextStyle(
-                            fontSize: 25,
-                            color: Buff.buff[100]),
-                      ),
+                      // Text(
+                      //   " ",
+                      //   //users.doc().get({username}).toString(),
+                      //   style: TextStyle(
+                      //       fontSize: 25,
+                      //       color: Buff.buff[100]),
+                      // ),
                       Text(
                         user.email!,
                         style: TextStyle(
-                            fontSize: 15,
-                            color: Buff.buff[900]),
+                            fontSize: 22,
+                            color: Buff.buff[100]),
                       ),
                     ],
                   ),
@@ -112,13 +112,12 @@ class ShowTeamState extends State<ShowTeam>
               title: const Text(
                 'Ver Perfil',
                 textScaleFactor: 1.5,
-                style: TextStyle(color: Colors.grey, fontFamily: 'RobotoSlab'),
+                style: TextStyle(color: Buff.buff, fontFamily: 'RobotoSlab'),
               ),
               onTap: () {
                 // TODO:Update the state of the app
-                //Navigator.push(context, )
-                // Navigator.pop(context);
-                // Navigator.of(context).pushNamed("/EditProfile");
+                Navigator.pop(context);
+                Navigator.of(context).pushNamed("/EditProfile");
               },
             ),
             ListTile(
@@ -161,7 +160,7 @@ class ShowTeamState extends State<ShowTeam>
                     fontFamily: 'RobotoSlab'),
               ),
               onTap: () async {
-                FirebaseAuth.instance.signOut();
+                await FirebaseAuth.instance.signOut();
               },
             ),
           ],
