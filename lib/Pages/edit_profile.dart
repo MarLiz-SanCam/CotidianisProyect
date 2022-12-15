@@ -19,7 +19,7 @@ class _EditProfile extends State<EditProfile> {
       appBar: AppBar(
         centerTitle: true, //Centra el título de la barra de la aplicación
         title: const Text(
-          'PDM proyect',
+          'perfil',
           //Texto para el título de la aplicación (aparece en la barra)
           style: TextStyle(fontSize: 22.0, fontFamily: 'RobotoSlab'),
         ),
@@ -70,6 +70,39 @@ class _EditProfile extends State<EditProfile> {
               Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 crossAxisAlignment: CrossAxisAlignment.start,
+                children: const [
+                  Text(
+                    "Nombre Usuario",
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontFamily: "Roboto",
+                      fontWeight: FontWeight.w400,
+                    ),
+                  ),
+                  Text(
+                    "MarLiz",
+                    style: TextStyle(
+                        fontSize: 21,
+                        fontFamily: "Roboto",
+                        fontWeight: FontWeight.w500
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+          const SizedBox(
+            height: 35,
+            width: 300,
+          ),
+          Row(
+            children: [
+              const SizedBox(
+                width: 25,
+              ),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
                     "E-mail:",
@@ -91,6 +124,84 @@ class _EditProfile extends State<EditProfile> {
               ),
             ],
           ),
+          const SizedBox(
+            height: 35,
+            width: 300,
+          ),
+          Row(
+            children: [
+              const SizedBox(
+                width: 25,
+              ),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Text(
+                    "Equipos:",
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontFamily: "Roboto",
+                      fontWeight: FontWeight.w400,
+                    ),
+                  ),
+                  Text(
+                    user.email!,
+                    style: TextStyle(
+                        fontSize: 21,
+                        fontFamily: "Roboto",
+                        fontWeight: FontWeight.w500
+                    ),
+                  ),
+                  Text(
+                    user.email!,
+                    style: TextStyle(
+                        fontSize: 21,
+                        fontFamily: "Roboto",
+                        fontWeight: FontWeight.w500
+                    ),
+                  ),
+                  Text(
+                    user.email!,
+                    style: TextStyle(
+                        fontSize: 21,
+                        fontFamily: "Roboto",
+                        fontWeight: FontWeight.w500
+                    ),
+                  ),
+                  Text(
+                    user.email!,
+                    style: TextStyle(
+                        fontSize: 21,
+                        fontFamily: "Roboto",
+                        fontWeight: FontWeight.w500
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              const SizedBox(
+                width: 150,
+              ),
+              ElevatedButton(
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all<Color>(
+                        Buff.buff.shade200
+                    ),
+                  ),
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                  child: Text("Guardar",
+                      style: TextStyle(fontSize: 18.0,color: Buff.buff.shade700))
+              ),
+            ],
+          ),
+
         ],
       ),
     );
