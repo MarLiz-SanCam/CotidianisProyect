@@ -1,8 +1,8 @@
 // ignore_for_file: avoid_print
 
 import 'package:flutter/material.dart';
-import '../Theme/champagne_pink.dart';
-import '../Theme/light_steel_blue.dart';
+import '../Theme/buff.dart';
+import '../Theme/steel_blue.dart';
 
 class Teams extends StatefulWidget {
   const Teams({
@@ -25,7 +25,7 @@ class _AddNewT extends State<Teams> {
           //Texto para el título de la aplicación (aparece en la barra)
           style: TextStyle(fontSize: 22.0, fontFamily: 'RobotoSlab'),
         ),
-        backgroundColor: ChampagnePink.champagnePink[300],
+        backgroundColor: Buff.buff[300],
       ),
       body: ListView(
         children: <Widget>[
@@ -41,13 +41,13 @@ class _AddNewT extends State<Teams> {
                     Navigator.of(context).pushNamed("/ShowTeam");
                   },
                   leading: CircleAvatar(
-                    backgroundColor: ChampagnePink.champagnePink,
+                    backgroundColor: Buff.buff,
                     radius: 25,
                     child: Text(
                       "TM",
                       style: TextStyle(
                           fontSize: 20,
-                          color: ChampagnePink.champagnePink[500]),
+                          color: Buff.buff[500]),
                     ),
                   ),
                   title: const Text(

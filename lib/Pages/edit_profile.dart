@@ -1,6 +1,8 @@
-import 'package:cotidianis_pdm/Theme/light_steel_blue.dart';
+import 'package:cotidianis_pdm/Theme/buff.dart';
+import 'package:cotidianis_pdm/Theme/sonic_silver.dart';
+import 'package:cotidianis_pdm/Theme/steel_blue.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-
 
 class EditProfile extends StatefulWidget{
   const EditProfile({Key? key}) : super(key: key);
@@ -9,12 +11,12 @@ class EditProfile extends StatefulWidget{
 }
 
 class _EditProfile extends State<EditProfile> {
+  final user = FirebaseAuth.instance.currentUser!;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: SonicSilver.sonicSilver.shade100,
       appBar: AppBar(
-        //Barra de la aplicación
         centerTitle: true, //Centra el título de la barra de la aplicación
         title: const Text(
           'PDM proyect',
@@ -23,12 +25,74 @@ class _EditProfile extends State<EditProfile> {
         ),
         backgroundColor: LightSteelBlue.lSteelBlue,
       ),
-      body: ListView(
-        children: const <Widget>[
-
-          ],
+      body: Column(
+        // mainAxisSize: MainAxisSize.max,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: <Widget>[
+          const SizedBox(
+            height: 35,
+          ),
+          CircleAvatar(
+            backgroundColor: Buff.buff[100],
+            radius: 80,
+            child: Text(
+              "MaP", //TODO: vava ser la foto de perfil del usuario
+              style: TextStyle(
+                  fontSize: 20,
+                  color: Buff.buff[800]),
+            ),
+          ),
+          const SizedBox(
+            height: 15,
+            width: 300,
+          ),
+          ElevatedButton(
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all<Color>(
+                  Buff.buff.shade200
+                ),
+              ),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: Text("Editar",
+                  style: TextStyle(fontSize: 18.0,color: Buff.buff.shade700))
+          ),
+          const SizedBox(
+            height: 35,
+            width: 300,
+          ),
+          Row(
+            children: [
+              const SizedBox(
+                width: 25,
+              ),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    "E-mail:",
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontFamily: "Roboto",
+                      fontWeight: FontWeight.w400,
+                    ),
+                  ),
+                  Text(
+                    user.email!,
+                    style: TextStyle(
+                      fontSize: 21,
+                      fontFamily: "Roboto",
+                      fontWeight: FontWeight.w500
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ],
       ),
-
     );
   }
 }

@@ -1,6 +1,6 @@
 // ignore: unnecessary_import
+import 'package:cotidianis_pdm/Theme/steel_blue.dart';
 import 'package:flutter/material.dart';
-import '../Theme/champagne_pink.dart';
 
 // --------------------------  Fin de los 'import' -------------------------- //
 // Página principal de la aplicación.
@@ -14,18 +14,18 @@ class FirstScreen extends StatelessWidget {
       appBar: AppBar(
         //Barra de la aplicación
         centerTitle: true, //Centra el título de la barra de la aplicación
-        title: const Text(
+        title: Text(
           'COTIDIANIS',
           //Texto para el título de la aplicación (aparece en la barra)
           style: TextStyle(
-              fontSize: 22.0, fontFamily: 'RobotoSlab', color: Colors.black),
+              fontSize: 22.0, fontFamily: 'RobotoSlab', color: LightSteelBlue.lSteelBlue[50]),
         ),
-        backgroundColor: ChampagnePink.champagnePink,
+        backgroundColor: LightSteelBlue.lSteelBlue[800],
       ),
       body: Container(
         decoration: const BoxDecoration(
           image: DecorationImage(
-            image: AssetImage("images/3.jpg"),
+            image: AssetImage("images/1.jpg"),
             fit: BoxFit.cover,
           ),
         ),
@@ -43,7 +43,7 @@ class FirstScreen extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       MaterialButton(
-                          color: ChampagnePink.champagnePink[900],
+                          color: LightSteelBlue.lSteelBlue[900],
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10.0)),
                           elevation: 5,
@@ -53,10 +53,10 @@ class FirstScreen extends StatelessWidget {
                           onPressed: () async {
                             Navigator.of(context).pushNamed('/RegisterScrn');
                           },
-                          child: const Text(
+                          child: Text(
                             'Registrarse',
                             style: TextStyle(
-                              color: ChampagnePink.champagnePink,
+                              color: LightSteelBlue.lSteelBlue[50],
                               //fontFamily: 'PTSerif',
                               fontWeight: FontWeight.bold,
                               fontSize: 20.0,
@@ -67,7 +67,7 @@ class FirstScreen extends StatelessWidget {
                         height: 50.0,
                       ),
                       MaterialButton(
-                          color: ChampagnePink.champagnePink[900],
+                          color: LightSteelBlue.lSteelBlue[800],
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10.0)),
                           elevation: 5,
@@ -77,10 +77,10 @@ class FirstScreen extends StatelessWidget {
                           onPressed: () async {
                             Navigator.of(context).pushNamed('/LogInScrn');
                           },
-                          child: const Text(
+                          child: Text(
                             'Iniciar Sesión',
                             style: TextStyle(
-                              color: ChampagnePink.champagnePink,
+                              color: LightSteelBlue.lSteelBlue[50],
                               fontFamily: 'PTSerif',
                               fontWeight: FontWeight.bold,
                               fontSize: 20.0,

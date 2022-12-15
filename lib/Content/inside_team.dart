@@ -1,10 +1,10 @@
 import 'package:cotidianis_pdm/Content/my_notes.dart';
 import 'package:cotidianis_pdm/Content/my_events.dart';
 import 'package:cotidianis_pdm/Content/my_lists.dart';
-import 'package:cotidianis_pdm/Theme/champagne_pink.dart';
+import 'package:cotidianis_pdm/Theme/buff.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import '../Theme/light_steel_blue.dart';
+import '../Theme/steel_blue.dart';
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
   @override
@@ -40,9 +40,9 @@ class HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateMi
         ),
         bottom: TabBar(
             controller: _tabController,
-            indicatorColor: ChampagnePink.champagnePink[900],
-            unselectedLabelColor: ChampagnePink.champagnePink[50],
-            labelColor: ChampagnePink.champagnePink[200],
+            indicatorColor: Buff.buff[900],
+            unselectedLabelColor: Buff.buff[50],
+            labelColor: Buff.buff[200],
             tabs: const[
               Tab(
                 text: ("Mi Agenda"),
@@ -79,13 +79,13 @@ class HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateMi
                   PRUEBA DE IMAGEN
                   size: 60,),*/
                   CircleAvatar(
-                    backgroundColor: ChampagnePink.champagnePink[100],
+                    backgroundColor: Buff.buff[100],
                     radius: 35,
                     child: Text(
                       "MaP",//TODO: vava ser la foto de perfil del usuario
                       style: TextStyle(
                           fontSize: 20,
-                          color: ChampagnePink.champagnePink[500]),
+                          color: Buff.buff[500]),
                     ),
                   ),
                   Column(
@@ -95,11 +95,11 @@ class HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateMi
                       Text(
                         //user.displayName!,
                         "UserNameHere",
-                        style: TextStyle(fontSize: 25, color: ChampagnePink.champagnePink[100]),
+                        style: TextStyle(fontSize: 25, color: Buff.buff[100]),
                       ),
                       Text(
                         user.email!,
-                        style: TextStyle(fontSize: 15, color: ChampagnePink.champagnePink[900]),
+                        style: TextStyle(fontSize: 15, color: Buff.buff[900]),
                       ),
                     ],
                   ),
@@ -111,7 +111,7 @@ class HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateMi
               title: const Text(
                 'Ver Perfil',
                 textScaleFactor: 1.5,
-                style: TextStyle(color: ChampagnePink.champagnePink, fontFamily: 'RobotoSlab' ),
+                style: TextStyle(color: Buff.buff, fontFamily: 'RobotoSlab' ),
               ),
               onTap: () {
                 // TODO:Update the state of the app
@@ -124,7 +124,7 @@ class HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateMi
               title: const Text(
                 'Equipos de trabajo',
                 textScaleFactor: 1.5,
-                style: TextStyle(color: ChampagnePink.champagnePink, fontFamily: 'RobotoSlab' ),
+                style: TextStyle(color: Buff.buff, fontFamily: 'RobotoSlab' ),
               ),
               onTap: () {
                 // TODO:Update the state of the app
@@ -156,7 +156,7 @@ class HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateMi
               title: const Text(
                 'Cerrar Sesion',
                 textScaleFactor: 1.5,
-                style: TextStyle(color: ChampagnePink.champagnePink, fontFamily: 'RobotoSlab' ),
+                style: TextStyle(color: Buff.buff, fontFamily: 'RobotoSlab' ),
               ),
               onTap: () async {
                 await FirebaseAuth.instance.signOut();
@@ -172,16 +172,6 @@ class HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateMi
           MyLists(),
           MyNotes(),
         ],
-      ),
-      bottomNavigationBar: BottomAppBar(
-        color: LightSteelBlue.lSteelBlue[500],
-        child: Text(
-          'PDM - Equipo 1; Cotidianis ',
-          textAlign: TextAlign.center,
-          style: TextStyle(
-            color: LightSteelBlue.lSteelBlue[50],
-          ),
-        ),
       ),
     );
   }

@@ -1,8 +1,8 @@
 // ignore_for_file: avoid_print, body_might_complete_normally_nullable
-import 'package:cotidianis_pdm/Theme/champagne_pink.dart';
+import 'package:cotidianis_pdm/Theme/buff.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import '../Theme/light_steel_blue.dart';
+import '../Theme/steel_blue.dart';
 // --------------------------  Fin de los 'import' -------------------------- //
 class AddTeam extends StatefulWidget {
   const AddTeam({Key? key}) : super(key: key);
@@ -31,7 +31,7 @@ class _AddTeam extends State<AddTeam> {
           //Texto para el título de la aplicación (aparece en la barra)
           style: TextStyle(fontSize: 22.0, fontFamily: 'RobotoSlab'),
         ),
-        backgroundColor: ChampagnePink.champagnePink,
+        backgroundColor: Buff.buff,
       ),
       body: ListView(
         children: [
@@ -86,7 +86,7 @@ class _AddTeam extends State<AddTeam> {
                     ElevatedButton(
                       style: ButtonStyle(
                         backgroundColor: MaterialStateProperty.all<Color>(
-                            ChampagnePink.champagnePink),
+                            Buff.buff),
                       ),
                       onPressed: () {
                         //Si se cancela el inicio de sesión, se cierra la aplicación
@@ -108,7 +108,7 @@ class _AddTeam extends State<AddTeam> {
                     ElevatedButton(
                       style: ButtonStyle(
                         backgroundColor: MaterialStateProperty.all<Color>(
-                            ChampagnePink.champagnePink),
+                            Buff.buff),
                       ),
                       onPressed: () {
                         print(

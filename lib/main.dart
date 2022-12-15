@@ -2,8 +2,8 @@
 
 import 'package:cotidianis_pdm/Pages/first_screen.dart';
 import 'package:cotidianis_pdm/Pages/home_screen.dart';
-import 'package:cotidianis_pdm/Theme/champagne_pink.dart';
-import 'package:cotidianis_pdm/Theme/light_steel_blue.dart';
+import 'package:cotidianis_pdm/Theme/buff.dart';
+import 'package:cotidianis_pdm/Theme/steel_blue.dart';
 import 'package:cotidianis_pdm/routes.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -57,7 +57,7 @@ class MyApp extends StatelessWidget{
       theme: ThemeData(
         brightness: Brightness.light,
         primaryColor: LightSteelBlue.lSteelBlue,
-        colorScheme: ColorScheme.fromSwatch().copyWith(secondary: ChampagnePink.champagnePink),
+        colorScheme: ColorScheme.fromSwatch().copyWith(secondary: Buff.buff),
       ),
       routes: buildAppRoutes(),
     );

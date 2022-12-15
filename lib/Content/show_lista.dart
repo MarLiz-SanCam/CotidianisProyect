@@ -1,7 +1,7 @@
-import 'package:cotidianis_pdm/Theme/champagne_pink.dart';
+import 'package:cotidianis_pdm/Theme/buff.dart';
 import 'package:flutter/material.dart';
 
-import '../Theme/light_steel_blue.dart';
+import '../Theme/steel_blue.dart';
 
 class ShowList extends StatefulWidget {
   const ShowList({Key? key}) : super(key: key);
@@ -74,7 +74,7 @@ class _ShowListState extends State<ShowList> {
                   if (hobby["isChecked"] == true) {
                     return Card(
                       elevation: 3,
-                      color: ChampagnePink.champagnePink,
+                      color: Buff.buff,
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Text(hobby["name"]),

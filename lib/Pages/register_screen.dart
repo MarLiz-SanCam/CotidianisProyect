@@ -1,9 +1,9 @@
 // ignore_for_file: avoid_print, body_might_complete_normally_nullable
 
-import 'package:cotidianis_pdm/Theme/light_steel_blue.dart';
+import 'package:cotidianis_pdm/Theme/steel_blue.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import '../Theme/champagne_pink.dart';
+import '../Theme/buff.dart';
 
 class RegisterScrn extends StatefulWidget {
   const RegisterScrn({Key? key}) : super(key: key);
@@ -36,7 +36,7 @@ class RegisterScrnState extends State<RegisterScrn> {
           style: TextStyle(
               fontSize: 22.0, fontFamily: 'RobotoSlab', color: Colors.black),
         ),
-        backgroundColor: ChampagnePink.champagnePink,
+        backgroundColor: Buff.buff,
       ),
       body: ListView(
         children: [

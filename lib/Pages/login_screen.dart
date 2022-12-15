@@ -1,7 +1,7 @@
 // ignore_for_file: non_constant_identifier_names, body_might_complete_normally_nullable, avoid_print
 
-import 'package:cotidianis_pdm/Theme/champagne_pink.dart';
-import 'package:cotidianis_pdm/Theme/light_steel_blue.dart';
+import 'package:cotidianis_pdm/Theme/buff.dart';
+import 'package:cotidianis_pdm/Theme/steel_blue.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -35,20 +35,21 @@ class LogInScrnState extends State<LogInScrn> {
           style: TextStyle(
               fontSize: 22.0,
               fontFamily: 'RobotoSlab',
-              color: LightSteelBlue.lSteelBlue[50]),
+              color: Buff.buff[900]),
         ),
-        backgroundColor: LightSteelBlue.lSteelBlue[500],
+        backgroundColor: Buff.buff[400],
       ),
-      body: ListView(
+      body: Column(
         children: [
           Container(
+            //color: SonicSilver.sonicSilver[100],
             alignment: Alignment.center,
             padding: const EdgeInsets.symmetric(vertical: 25.0, horizontal: 40),
             child: Column(
               children: [
                 Icon(
                   Icons.person_rounded,
-                  color: ChampagnePink.champagnePink[300],
+                  color: LightSteelBlue.lSteelBlue[400],
                   size: 200,
                 ),
                 const SizedBox(
@@ -79,12 +80,7 @@ class LogInScrnState extends State<LogInScrn> {
                       const SizedBox(height: 30),
                       TextFormField(
                         //TODO: validaddor de la contraseña
-                        controller: passController,
-                        autocorrect: false,
-                        obscureText: true,
-                        textInputAction: TextInputAction.done,
-                        keyboardType: TextInputType.emailAddress,
-                        cursorColor: LightSteelBlue.lSteelBlue,
+
                         decoration:
                             const InputDecoration(labelText: "Contraseña"),
                         validator: (value) {
@@ -102,7 +98,7 @@ class LogInScrnState extends State<LogInScrn> {
                           child: Text(
                             "olvidé mi contraseña",
                             style: TextStyle(
-                                color: ChampagnePink.champagnePink[400]),
+                                color: Buff.buff[400]),
                           )),
                     ],
                   ),
@@ -153,20 +149,4 @@ class LogInScrnState extends State<LogInScrn> {
       ),
     );
   }
-  // Future LogIn() async{
-  //   showDialog(
-  //      context: context,
-  //       barrierDismissible: false,
-  //       builder: (context) => const Center(child: CircularProgressIndicator()),
-  //   );
-  //   try{
-  //     await FirebaseAuth.instance.signInWithEmailAndPassword(
-  //       email: emailController.text.trim(),
-  //       password: passController.text.trim(),
-  //     );
-  //   }on FirebaseAuthException catch (e){
-  //     print(e);
-  //   }
-  //   navigatorKey.currentState!.popUntil((route) => route.isFirst);
-  // }
 }

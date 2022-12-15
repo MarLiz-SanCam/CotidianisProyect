@@ -1,4 +1,4 @@
-import 'package:cotidianis_pdm/Theme/light_steel_blue.dart';
+import 'package:cotidianis_pdm/Theme/steel_blue.dart';
 import 'package:flutter/material.dart';
 
 class PassRecover extends StatefulWidget {

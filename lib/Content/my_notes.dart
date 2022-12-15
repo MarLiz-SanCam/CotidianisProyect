@@ -21,9 +21,6 @@ class MyNotes extends StatelessWidget {
             subtitle: Text(todos[index].descripcion),
             trailing: const Icon(Icons.navigate_next_rounded),
             onTap: () {
-              print("Abriendo Nota...");
-            },
-            onLongPress: () {
               print(todos[index].titulo);
               Navigator.of(context).pushNamed('/ShowNotes');
             },

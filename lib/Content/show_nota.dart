@@ -1,7 +1,6 @@
-import 'package:cotidianis_pdm/Theme/champagne_pink.dart';
+import 'package:cotidianis_pdm/Theme/buff.dart';
 import 'package:flutter/material.dart';
-
-import '../Theme/light_steel_blue.dart';
+import '../Theme/steel_blue.dart';
 
 class ShowNota extends StatelessWidget {
   const ShowNota({Key? key}) : super(key: key);
@@ -9,7 +8,7 @@ class ShowNota extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: ChampagnePink.champagnePink[200],
+      backgroundColor: Buff.buff[200],
       appBar: AppBar(
         //Barra de la aplicación
         centerTitle: true, //Centra el título de la barra de la aplicación
